@@ -1,0 +1,25 @@
+syntax = "proto3";
+package main;
+
+
+service ServerRegistryGrpc {
+  rpc ServerRegistry(ServerRequest) returns (ServerResult){}
+
+}
+message nodes {
+  string Addr = 1;
+  int32 weigh = 2;
+}
+message router {
+  string url = 1;
+
+}
+message ServerRequest {
+  string Desc = 1;
+  string Name = 4;
+  repeated nodes Nodes = 2;
+  router Router = 3;
+}
+message ServerResult{
+  int64 Result = 1;
+}
