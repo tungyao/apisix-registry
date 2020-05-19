@@ -11,14 +11,32 @@ message nodes {
   int32 weigh = 2;
 }
 message router {
-  string url = 1;
+  string Url = 1;
+  string Host = 2;
+  repeated string Hosts = 3;
+  string RemoteAddr = 4;
+  repeated string MRemoteAddrs = 5;
+  string Methods = 6;
+  string Priority = 7;
+  string Vars = 8;
+  string FilterFunc = 9;
+  string Upstream = 10;
+  string Upstream_id = 11;
+  string ServiceId = 12;
+  string ServiceProtocol = 13;
 
 }
 message ServerRequest {
-  string Desc = 1;
-  string Name = 4;
+  string Type = 1;
   repeated nodes Nodes = 2;
-  router Router = 3;
+  string hash_on = 3;
+  string Key = 4;
+  string Checks = 5; //健康检查
+  bool EnableWebsocket =6;
+  int32 Timeout = 7;
+  string Desc = 8;
+  string Name = 9;
+  router Router = 10;
 }
 message ServerResult{
   int64 Result = 1;
